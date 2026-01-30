@@ -61,7 +61,10 @@ useEffect(() => {
     <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
       <div className="nav-container">
         <div className="nav-brand">
-          <div className="nav-logo">Abuzar Ahmad</div>
+          <div className="nav-logo">
+            <span className="nav-code-symbol">&lt;./&gt;</span>
+            Abuzar Ahmad
+          </div>
         </div>
         
         <div className="nav-controls">

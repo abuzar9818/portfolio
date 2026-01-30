@@ -129,17 +129,20 @@ const Hero = () => {
                         transition={{ duration: 0.8, delay: 0.3 }}
                         data-aos="fade-left"
                     >
-                        <div className="profile-image-container">
-                            <img 
-                                src="/assets/Abuzar_Photo.jpeg" 
-                                alt="Abuzar Ahmad - Full Stack Developer" 
-                                className="profile-image"
-                                loading="eager"
-                                onError={(e) => {
-                                    e.target.style.display = 'none';
-                                    // Optional: Add fallback content here
-                                }}
-                            />
+                        <div className="profile-image-wrapper">
+                            <div className="profile-image-container">
+                                <img 
+                                    src="/assets/Abuzar_Photo.jpeg" 
+                                    alt="Abuzar Ahmad - Full Stack Developer" 
+                                    className="profile-image"
+                                    loading="eager"
+                                    onError={(e) => {
+                                        e.target.style.display = 'none';
+                                    }}
+                                />
+                                <div className="profile-image-overlay"></div>
+                            </div>
+                            <div className="profile-image-background"></div>
                         </div>
                     </motion.div>
                 </div>
