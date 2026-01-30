@@ -2,6 +2,8 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { FaEnvelope, FaLinkedin, FaGithub, FaPaperPlane } from 'react-icons/fa';
 import { portfolioData } from '../data/portfolioData';
+import { Typewriter } from 'react-simple-typewriter';
+
 
 const Hero = () => {
     const { personalInfo } = portfolioData;
@@ -39,15 +41,31 @@ const Hero = () => {
                             Hi, I'm {personalInfo.name}
                         </motion.h1>
 
-                        <motion.h2
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.8, delay: 0.4 }}
-                            data-aos="fade-up"
-                            data-aos-delay="400"
-                        >
-                            {personalInfo.tagline}
-                        </motion.h2>
+                       <motion.h2
+  initial={{ opacity: 0, y: 20 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.8, delay: 0.4 }}
+  data-aos="fade-up"
+  data-aos-delay="400"
+>
+  <span className="typing-text">
+    <Typewriter
+      words={[
+        "Full Stack Developer",
+        "AI Enthusiast",
+        "UI/UX Designer",
+        "Open Source Contributor",
+      ]}
+      loop={true}
+      cursor
+      cursorStyle="|"
+      typeSpeed={90}
+      deleteSpeed={50}
+      delaySpeed={1400}
+    />
+  </span>
+</motion.h2>
+
 
                         <motion.p
                             className="hero-summary"

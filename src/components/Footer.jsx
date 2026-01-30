@@ -12,6 +12,9 @@ const Footer = () => {
           <div className="footer-section">
             <h3>Abuzar Ahmad</h3>
             <p>Full Stack Developer</p>
+            <p>AI Enthusiast</p>
+            <p>UI/UX Designer</p>
+            <p>Open Source Contributor</p>
             <div className="footer-social">
               <a href={personalInfo.github} target="_blank" rel="noopener noreferrer">
                 <FaGithub />
