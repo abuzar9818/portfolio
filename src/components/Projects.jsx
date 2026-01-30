@@ -4,9 +4,9 @@ import { FaGithub, FaExternalLinkAlt, FaTimes, FaCode, FaLayerGroup } from 'reac
 import { portfolioData } from '../data/portfolioData';
 
 // Import project images from assets
-import urbanEliteImg from '../assets/urban.png';
-import megaBlogImg from '../assets/megaBlog.png';
-import weatherAppImg from '../assets/weatherApp.png';
+import urbanEliteImg from "/assets/urban.png";
+import megaBlogImg from "/assets/megaBlog.png";
+import weatherAppImg from "/assets/WeatherApp.png";
 
 const Projects = () => {
   const { projects } = portfolioData;
