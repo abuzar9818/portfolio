@@ -3,20 +3,43 @@ import { FaMoon, FaSun, FaDownload } from 'react-icons/fa';
 
 const Navigation = () => {
   const [scrolled, setScrolled] = useState(false);
-  const [theme, setTheme] = useState('dark');
+  const [theme, setTheme] = useState(() => {
+    // Check localStorage first, then system preference
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme) return savedTheme;
+    
+    // Check system preference
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      return "dark";
+    }
+    return "light";
+  });
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 30);
-    };
+/* ✅ Load theme on page refresh */
+useEffect(() => {
+  const savedTheme = localStorage.getItem("theme");
+  if (savedTheme) {
+    setTheme(savedTheme);
+  }
+}, []);
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+/* ✅ Apply theme to body */
+useEffect(() => {
+  document.body.setAttribute("data-theme", theme);
+  localStorage.setItem("theme", theme);
+}, [theme]);
 
-  const toggleTheme = () => {
-    setTheme(theme === 'dark' ? 'light' : 'dark');
-  };
+/* ✅ Toggle theme */
+const toggleTheme = () => {
+  setTheme((prevTheme) => (prevTheme === "dark" ? "light" : "dark"));
+};
+
+
+
+useEffect(() => {
+  document.body.setAttribute("data-theme", theme);
+}, [theme]);
+
 
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
@@ -24,7 +47,7 @@ const Navigation = () => {
       element.scrollIntoView({ behavior: 'smooth' });
     }
   };
-
+  
   const downloadResume = () => {
     const link = document.createElement('a');
     link.href = '/Abuzar_Ahmad_Resume.pdf';
@@ -85,7 +108,11 @@ const Navigation = () => {
               <FaDownload /> Resume
             </button>
             
-            <button className="theme-toggle" onClick={toggleTheme}>
+            <button 
+              className="theme-toggle" 
+              onClick={toggleTheme}
+              aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} theme`}
+            >
               {theme === 'dark' ? <FaSun /> : <FaMoon />}
             </button>
           </div>
