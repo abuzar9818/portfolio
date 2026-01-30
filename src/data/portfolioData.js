@@ -27,7 +27,8 @@ export const portfolioData = {
         "Developed user authentication, order processing, coupon discounting, and purchase-verified product reviews",
         "Created an admin dashboard with improved inventory efficiency, coupon system, and low stock notifications"
       ],
-      github: "https://github.com/abuzar-ahmad/urban-elite"
+      github: "https://github.com/abuzar9818/Urban_Elite",
+      live:"https://urban-elite.vercel.app"
     },
     {
       id: 2,
@@ -38,7 +39,8 @@ export const portfolioData = {
         "Integrated Appwrite backend functionality for authentication, database management, and file storage",
         "Built complex functionality such as rich text editing using TinyMCE, Redux Toolkit for state management"
       ],
-      github: "https://github.com/abuzar-ahmad/mega-blog"
+      github: "https://github.com/abuzar9818/Mega_Blog",
+      live:"https://mega-blog-five-nu.vercel.app"
     },
     {
       id: 3,
@@ -49,7 +51,8 @@ export const portfolioData = {
         "Integrated the RapidAPI Weather API to display weather information such as temperature, humidity, pressure, visibility",
         "Created a user-friendly interface that allows searching for weather information"
       ],
-      github: "https://github.com/abuzar-ahmad/weather-app"
+      github: "https://github.com/abuzar9818/Weather-app",
+      live:"https://weather-app-mu-one-32.vercel.app"
     },
   ],
   

@@ -190,7 +190,7 @@ const Projects = () => {
                       <FaGithub /> View Source Code
                     </a>
                     <a 
-                      href="#" 
+                      href={selectedProject.live}
                       className="btn btn-outline"
                     >
                       <FaExternalLinkAlt /> Live Demo
