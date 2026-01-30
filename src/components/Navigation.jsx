@@ -27,7 +27,7 @@ const Navigation = () => {
 
   const downloadResume = () => {
     const link = document.createElement('a');
-    link.href = '/sample_resume.pdf';
+    link.href = '/Abuzar_Ahmad_Resume.pdf';
     link.download = 'Abuzar_Ahmad_Resume.pdf';
     document.body.appendChild(link);
     link.click();
