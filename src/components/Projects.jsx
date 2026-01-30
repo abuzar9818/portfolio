@@ -3,22 +3,17 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { FaGithub, FaExternalLinkAlt, FaTimes, FaCode, FaLayerGroup } from 'react-icons/fa';
 import { portfolioData } from '../data/portfolioData';
 
-// Import project images from assets
-import urbanEliteImg from "/assets/urban.png";
-import megaBlogImg from "/assets/megaBlog.png";
-import weatherAppImg from "/assets/WeatherApp.png";
+// Project image paths
+const projectImages = {
+  1: '/assets/urban.png',     // Urban Elite
+  2: '/assets/megaBlog.png',  // Mega Blog
+  3: '/assets/WeatherApp.png' // Weather App
+};
 
 const Projects = () => {
   const { projects } = portfolioData;
   const [selectedProject, setSelectedProject] = useState(null);
   const [showModal, setShowModal] = useState(false);
-
-  // Map project images to their respective IDs
-  const projectImages = {
-    1: urbanEliteImg, // Urban Elite
-    2: megaBlogImg,   // Mega Blog
-    3: weatherAppImg  // Weather App
-  };
 
   const openModal = (project) => {
     setSelectedProject(project);
@@ -78,6 +73,9 @@ const Projects = () => {
                     src={projectImages[project.id]} 
                     alt={project.title}
                     className="project-image"
+                    onError={(e) => {
+                      e.target.style.display = 'none';
+                    }}
                   />
                 ) : (
                   <div className="image-placeholder-text">
@@ -153,6 +151,9 @@ const Projects = () => {
                       src={projectImages[selectedProject.id]} 
                       alt={selectedProject.title}
                       className="modal-image"
+                      onError={(e) => {
+                        e.target.style.display = 'none';
+                      }}
                     />
                   ) : (
                     <div className="modal-image-placeholder-text">
