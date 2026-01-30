@@ -31,7 +31,7 @@ const Education = () => {
               <div className="timeline-dot"></div>
               <div className="timeline-content card">
                 <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1rem' }}>
-                  <FaGraduationCap style={{ color: '#6366f1', fontSize: '1.5rem' }} />
+                  <FaGraduationCap style={{ color: '#38BDF8', fontSize: '1.5rem' }} />
                   <h3>{edu.degree}</h3>
                 </div>
                 

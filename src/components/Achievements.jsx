@@ -17,7 +17,7 @@ const Achievements = () => {
     <section id="achievements" className="section">
       <div className="container">
         <motion.h2 
-          className="section-title animate-on-scroll"
+          className="section-title"
           initial={{ opacity: 0, y: -30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -27,13 +27,13 @@ const Achievements = () => {
           Achievements & Certifications
         </motion.h2>
         
-        <div className="achievements-grid">
+        <div className="achievements-showcase">
           {achievements.map((achievement, index) => (
             <motion.div 
               key={achievement.id}
-              className="achievement-card animate-on-scroll"
-              whileHover={{ y: -10, scale: 1.02 }}
-              data-aos="flip-left"
+              className="achievement-card"
+              whileHover={{ y: -10, scale: 1.05 }}
+              data-aos="fade-up"
               data-aos-delay={index * 100}
             >
               <div className="achievement-icon">

@@ -1,66 +1,94 @@
 import React, { useState, useEffect } from 'react';
-import { FaBars, FaTimes } from 'react-icons/fa';
+import { FaMoon, FaSun, FaDownload } from 'react-icons/fa';
 
 const Navigation = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [theme, setTheme] = useState('dark');
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
+      setScrolled(window.scrollY > 30);
     };
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
+  const toggleTheme = () => {
+    setTheme(theme === 'dark' ? 'light' : 'dark');
   };
 
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
-      setIsMenuOpen(false);
     }
+  };
+
+  const downloadResume = () => {
+    const link = document.createElement('a');
+    link.href = '/sample_resume.pdf';
+    link.download = 'Abuzar_Ahmad_Resume.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
 
   return (
     <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
       <div className="nav-container">
-        <div className="nav-logo">Abuzar Ahmad</div>
+        <div className="nav-brand">
+          <div className="nav-logo">Abuzar Ahmad</div>
+        </div>
         
-        <ul className={`nav-menu ${isMenuOpen ? 'active' : ''}`}>
-          <li>
-            <button onClick={() => scrollToSection('home')} className="nav-link">
-              Home
+        <div className="nav-controls">
+          <ul className="nav-menu">
+            <li>
+              <button onClick={() => scrollToSection('home')} className="nav-link">
+                Home
+              </button>
+            </li>
+            <li>
+              <button onClick={() => scrollToSection('about')} className="nav-link">
+                About
+              </button>
+            </li>
+            <li>
+              <button onClick={() => scrollToSection('skills')} className="nav-link">
+                Skills
+              </button>
+            </li>
+            <li>
+              <button onClick={() => scrollToSection('projects')} className="nav-link">
+                Projects
+              </button>
+            </li>
+            <li>
+              <button onClick={() => scrollToSection('education')} className="nav-link">
+                Education
+              </button>
+            </li>
+            <li>
+              <button onClick={() => scrollToSection('achievements')} className="nav-link">
+                Achievements
+              </button>
+            </li>
+            <li>
+              <button onClick={() => scrollToSection('contact')} className="nav-link">
+                Contact
+              </button>
+            </li>
+          </ul>
+          
+          <div className="nav-actions">
+            <button className="resume-download-btn" onClick={downloadResume}>
+              <FaDownload /> Resume
             </button>
-          </li>
-          <li>
-            <button onClick={() => scrollToSection('skills')} className="nav-link">
-              Skills
+            
+            <button className="theme-toggle" onClick={toggleTheme}>
+              {theme === 'dark' ? <FaSun /> : <FaMoon />}
             </button>
-          </li>
-          <li>
-            <button onClick={() => scrollToSection('projects')} className="nav-link">
-              Projects
-            </button>
-          </li>
-          <li>
-            <button onClick={() => scrollToSection('education')} className="nav-link">
-              Education
-            </button>
-          </li>
-          <li>
-            <button onClick={() => scrollToSection('achievements')} className="nav-link">
-              Achievements
-            </button>
-          </li>
-        </ul>
-        
-        <div className="nav-toggle" onClick={toggleMenu}>
-          {isMenuOpen ? <FaTimes /> : <FaBars />}
+          </div>
         </div>
       </div>
     </nav>

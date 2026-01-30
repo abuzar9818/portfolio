@@ -2,12 +2,13 @@ export const portfolioData = {
   personalInfo: {
     name: "Abuzar Ahmad",
     tagline: "Full Stack Developer",
-    email: "abuzarahmad@gmail.com",
-    linkedin: "https://linkedin.com/in/abuzar-ahmad",
-    github: "https://github.com/abuzar-ahmad"
+    email: "abuzarahmad678@gmail.com",
+
+    location: "Bengaluru, India",
+    linkedin: "https://www.linkedin.com/in/abuzar-ahmad-226a4a279/",
+    github: "https://github.com/abuzar9818"
   },
   
-  summary: "Skilled Full Stack Developer experienced in building scalable MERN applications. Tackled over 100+ DSA problems on LeetCode and GeeksforGeeks with a strong interest in Artificial Intelligence and Machine Learning and creating intelligent systems.",
   
   skills: {
     programmingLanguages: ["Java", "JavaScript", "TypeScript", "C", "C++", "Python"],
@@ -50,17 +51,6 @@ export const portfolioData = {
       ],
       github: "https://github.com/abuzar-ahmad/weather-app"
     },
-    {
-      id: 4,
-      title: "MindSpace",
-      technologies: "EJS, Node.js, MongoDB",
-      description: "Developed a social media-like notes app using Node.js, Express, MongoDB, and EJS to allow users to post and interact through a community feed.",
-      features: [
-        "Implemented a secure authentication system using JWT, cookies, and bcrypt password hashing",
-        "Added social features such as post editing, profile management, and like/unlike interactions"
-      ],
-      github: "https://github.com/abuzar-ahmad/mindspace"
-    }
   ],
   
   education: [
@@ -80,11 +70,12 @@ export const portfolioData = {
     },
     {
       id: 3,
-      institution: "Seventh Day Adventist Senior Secondary School",
+      institution: "Seventh Day Adventist Senior Secondary  School",
       degree: "Class X (ICSE Board)",
       duration: "Apr 2019 – Mar 2020",
       percentage: "82%"
-    }
+    },
+
   ],
   
   achievements: [
