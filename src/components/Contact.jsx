@@ -1,88 +1,118 @@
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaLinkedin, FaGithub, FaPaperPlane } from 'react-icons/fa';
-import { portfolioData } from '../data/portfolioData';
+import React, { useState } from "react";
+import { motion } from "framer-motion";
+import emailjs from "@emailjs/browser";
+
+
+import {
+  FaEnvelope,
+  FaMapMarkerAlt,
+  FaLinkedin,
+  FaGithub,
+  FaPaperPlane,
+} from "react-icons/fa";
+
+import { portfolioData } from "../data/portfolioData";
 
 const Contact = () => {
   const { personalInfo } = portfolioData;
+
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: ''
+    user_name: "",
+    user_email: "",
+    subject: "",
+    message: "",
   });
+
+
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState('');
+  const [submitStatus, setSubmitStatus] = useState("");
 
+  // ✅ Input Change Handler
   const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  // ✅ Working Submit Handler with EmailJS
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    setSubmitStatus('');
-    
-    try {
-      // Simulate form submission
-      await new Promise(resolve => setTimeout(resolve, 1500));
-      
-      // In a real application, you would send this to your backend
-      console.log('Form submitted:', formData);
-      
-      setSubmitStatus('success');
-      setFormData({ name: '', email: '', subject: '', message: '' });
-      
-      // Open email client as fallback
-      const mailtoLink = `mailto:${personalInfo.email}?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(`From: ${formData.name}\n\n${formData.message}`)}`;
-      window.location.href = mailtoLink;
-      
-    } catch (error) {
-      setSubmitStatus('error');
-      console.error('Submission error:', error);
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
+  e.preventDefault();
+  setIsSubmitting(true);
+
+  try {
+    // ✅ 1. Send email to Admin (You)
+    await emailjs.send(
+      import.meta.env.VITE_EMAILJS_SERVICE_ID,
+      import.meta.env.VITE_EMAILJS_ADMIN_TEMPLATE_ID,
+      formData,
+      import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+    );
+
+    // ✅ 2. Send auto-reply to User
+    await emailjs.send(
+      import.meta.env.VITE_EMAILJS_SERVICE_ID,
+      import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+      formData,
+      import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+    );
+
+    setSubmitStatus("success");
+
+    setFormData({
+      user_name: "",
+      user_email: "",
+      subject: "",
+      message: "",
+    });
+  } catch (error) {
+    console.log("EmailJS Error:", error);
+    setSubmitStatus("error");
+  } finally {
+    setIsSubmitting(false);
+  }
+};
+
 
   return (
     <section id="contact" className="section">
       <div className="container">
-        <motion.h2 
+        {/* ✅ Title */}
+        <motion.h2
           className="section-title"
           initial={{ opacity: 0, y: -30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          data-aos="fade-up"
         >
           Get In Touch
         </motion.h2>
-        
+
         <div className="contact-content">
-          <motion.div 
+          {/* ✅ Left Info Section */}
+          <motion.div
             className="contact-info"
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            data-aos="fade-right"
           >
             <h3>Let's Connect</h3>
-            <p>I'm always interested in new opportunities and exciting projects. Feel free to reach out!</p>
-            
+            <p>
+              I'm always open to new opportunities and exciting projects. Feel
+              free to reach out!
+            </p>
+
             <div className="contact-details">
+              {/* Email */}
               <div className="contact-item">
                 <FaEnvelope />
                 <div>
                   <h4>Email</h4>
-                  <a href={`mailto:${personalInfo.email}`}>{personalInfo.email}</a>
+                  <a href={`mailto:${personalInfo.email}`}>
+                    {personalInfo.email}
+                  </a>
                 </div>
               </div>
-              
+
+              {/* Location */}
               <div className="contact-item">
                 <FaMapMarkerAlt />
                 <div>
@@ -91,50 +121,65 @@ const Contact = () => {
                 </div>
               </div>
             </div>
-            
+
+            {/* Social Links */}
             <div className="social-links-contact">
-              <a href={personalInfo.linkedin} target="_blank" rel="noopener noreferrer" className="social-link">
+              <a
+                href={personalInfo.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="social-link"
+              >
                 <FaLinkedin />
                 <span>LinkedIn</span>
               </a>
-              <a href={personalInfo.github} target="_blank" rel="noopener noreferrer" className="social-link">
+
+              <a
+                href={personalInfo.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="social-link"
+              >
                 <FaGithub />
                 <span>GitHub</span>
               </a>
             </div>
           </motion.div>
-          
-          <motion.div 
+
+          {/* ✅ Right Form Section */}
+          <motion.div
             className="contact-form-container"
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            data-aos="fade-left"
           >
             <form onSubmit={handleSubmit} className="contact-form card">
+              {/* Name */}
               <div className="form-group">
-                <input
-                  type="text"
-                  name="name"
-                  placeholder="Your Name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  required
-                />
+               <input
+  type="text"
+  name="user_name"
+  placeholder="Your Name"
+  value={formData.user_name}
+  onChange={handleChange}
+  required
+/>
               </div>
-              
+
+              {/* Email */}
               <div className="form-group">
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="Your Email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                />
+               <input
+  type="email"
+  name="user_email"
+  placeholder="Your Email"
+  value={formData.user_email}
+  onChange={handleChange}
+  required
+/>
               </div>
-              
+
+              {/* Subject */}
               <div className="form-group">
                 <input
                   type="text"
@@ -145,7 +190,8 @@ const Contact = () => {
                   required
                 />
               </div>
-              
+
+              {/* Message */}
               <div className="form-group">
                 <textarea
                   name="message"
@@ -154,11 +200,12 @@ const Contact = () => {
                   value={formData.message}
                   onChange={handleChange}
                   required
-                ></textarea>
+                />
               </div>
-              
-              <button 
-                type="submit" 
+
+              {/* Submit Button */}
+              <button
+                type="submit"
                 className="btn submit-btn"
                 disabled={isSubmitting}
               >
@@ -172,17 +219,18 @@ const Contact = () => {
                   </>
                 )}
               </button>
-              
-              {submitStatus === 'success' && (
-                <div className="form-status success">
-                  Message sent successfully! I'll get back to you soon.
-                </div>
+
+              {/* ✅ Status Messages */}
+              {submitStatus === "success" && (
+                <p className="form-status success">
+                  ✅ Message sent successfully!
+                </p>
               )}
-              
-              {submitStatus === 'error' && (
-                <div className="form-status error">
-                  Something went wrong. Please try again or email me directly.
-                </div>
+
+              {submitStatus === "error" && (
+                <p className="form-status error">
+                  ❌ Something went wrong. Please try again.
+                </p>
               )}
             </form>
           </motion.div>
