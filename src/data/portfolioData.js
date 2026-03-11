@@ -73,8 +73,8 @@ export const portfolioData = {
       technologies: "TypeScript, Tailwind CSS, Javascript",
       description: "A high-performance, premium scroll-driven hero section built with React, Next.js, Tailwind CSS, and GSAP ScrollTrigger.This project was engineered to replicate top-tier, cinematic horizontal scrolling experiences directly tied to vertical scroll progression. By parsing scroll distance into explicit multi-stage translation and scaling rules, it creates the illusion of a luxury sports car dynamically driving out of the viewport.",
       features: [
-        "The core of the interaction lies within HeroSection.tsx, which pins a 100vh container and intercepts normal scrolling for 2500px (end: "+=2500"). The scrubbing is intentionally delayed (scrub: 1.5) for a heavy, luxurious weight.",
-        "Created a user-friendly interface that allows searching for weather information"
+        "The core of the interaction lies within HeroSection.tsx, which pins a 100vh container and intercepts normal scrolling for 2500px.",
+        "To maintain depth and realism, a strict composition hierarchy is enforced using raw Tailwind CSS modifiers."
       ],
       github: "https://github.com/abuzar9818/Scroll_Animation",
       live:"https://abuzar9818.github.io/Scroll_Animation/"
