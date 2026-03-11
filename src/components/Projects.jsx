@@ -5,9 +5,12 @@ import { portfolioData } from '../data/portfolioData';
 
 // Project image paths
 const projectImages = {
-  1: '/assets/urban.png',     // Urban Elite
-  2: '/assets/megaBlog.png',  // Mega Blog
-  3: '/assets/WeatherApp.png' // Weather App
+  1: '/assets/urban.png',           // Urban Elite
+  2: '/assets/megaBlog.png',        // Mega Blog
+  3: '/assets/Grow_Therapy.png',    // Grow Therapy
+  4: '/assets/KaroStartup.png',     // KaroStartup
+  5: '/assets/ScrollAnimation.png', // Scroll Animation
+  6: '/assets/WeatherApp.png'       // Weather App
 };
 
 const Projects = () => {

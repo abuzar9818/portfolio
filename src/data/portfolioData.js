@@ -45,7 +45,7 @@ export const portfolioData = {
     {
       id: 3,
       title: "Grow Therapy",
-      technologies: "Typescript, CSS3, JavaScript",
+      technologies: "Typescript, CSS3, Next.js",
       description: "Grow Therapy is a professional therapy practice website based in Santa Monica, CA, specializing in anxiety, trauma, and burnout treatment. The site showcases the services of Dr. Maya Reynolds, PsyD, a licensed clinical psychologist who offers personalized therapy for adults struggling with mental health challenges.",
       features: [
         "Professional presentation of therapy services",
@@ -70,7 +70,7 @@ export const portfolioData = {
     {
       id: 5,
       title: "Scroll Animation",
-      technologies: "TypeScript, Tailwind CSS, Javascript",
+      technologies: "TypeScript, Tailwind CSS, Javascript,GSAP",
       description: "A high-performance, premium scroll-driven hero section built with React, Next.js, Tailwind CSS, and GSAP ScrollTrigger.This project was engineered to replicate top-tier, cinematic horizontal scrolling experiences directly tied to vertical scroll progression. By parsing scroll distance into explicit multi-stage translation and scaling rules, it creates the illusion of a luxury sports car dynamically driving out of the viewport.",
       features: [
         "The core of the interaction lies within HeroSection.tsx, which pins a 100vh container and intercepts normal scrolling for 2500px.",
