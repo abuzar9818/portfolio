@@ -44,6 +44,43 @@ export const portfolioData = {
     },
     {
       id: 3,
+      title: "Grow Therapy",
+      technologies: "Typescript, CSS3, JavaScript",
+      description: "Grow Therapy is a professional therapy practice website based in Santa Monica, CA, specializing in anxiety, trauma, and burnout treatment. The site showcases the services of Dr. Maya Reynolds, PsyD, a licensed clinical psychologist who offers personalized therapy for adults struggling with mental health challenges.",
+      features: [
+        "Professional presentation of therapy services",
+        "Detailed information about treatment specialties",
+        "Responsive design optimized for all devices"
+      ],
+      github: "https://github.com/abuzar9818/Grow_Therapy",
+      live:"https://grow-therapy-one.vercel.app/"
+    },
+    {
+      id: 4,
+      title: "KaroStartup",
+      technologies: "HTML5, CSS3, JavaScript",
+      description: "Karo Pitch is a premium, high-converting startup discovery and pitching platform designed to bridge the gap between early-stage founders and active investors (Angels, VCs, and Syndicates) across India.",
+      features: [
+        "The Latest Startup News block uses a zero-dependency Continuous Infinite Slider.",
+        "The Startup Ecosystem Statistics area uses an IntersectionObserver paired with an animation frame loop to visually count-up values (25Cr+, 120+) directly upon entering the user's viewport, providing instant engagement."
+      ],
+      github: "https://github.com/abuzar9818/KaroStartup",
+      live:"https://karo-startup-sand.vercel.app"
+    },
+    {
+      id: 5,
+      title: "Scroll Animation",
+      technologies: "TypeScript, Tailwind CSS, Javascript",
+      description: "A high-performance, premium scroll-driven hero section built with React, Next.js, Tailwind CSS, and GSAP ScrollTrigger.This project was engineered to replicate top-tier, cinematic horizontal scrolling experiences directly tied to vertical scroll progression. By parsing scroll distance into explicit multi-stage translation and scaling rules, it creates the illusion of a luxury sports car dynamically driving out of the viewport.",
+      features: [
+        "The core of the interaction lies within HeroSection.tsx, which pins a 100vh container and intercepts normal scrolling for 2500px (end: "+=2500"). The scrubbing is intentionally delayed (scrub: 1.5) for a heavy, luxurious weight.",
+        "Created a user-friendly interface that allows searching for weather information"
+      ],
+      github: "https://github.com/abuzar9818/Scroll_Animation",
+      live:"https://abuzar9818.github.io/Scroll_Animation/"
+    },
+    {
+      id: 6,
       title: "Weather App",
       technologies: "HTML5, CSS3, JavaScript, RapidAPI",
       description: "Built a responsive weather app using HTML5, CSS3, JavaScript, and Bootstrap to show real-time global updates.",
